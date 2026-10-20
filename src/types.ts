@@ -9,11 +9,8 @@ type Produto = {
 };
 
 export type {
-     Cliente
-} 
-
-export type {
-     Produto
+     Cliente,
+     Produto,
 } 
 
 /* export type Cliente = {

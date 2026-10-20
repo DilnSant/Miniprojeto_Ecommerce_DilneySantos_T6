@@ -1,9 +1,14 @@
-import type { Cliente } from './types.ts';
+import type { Cliente } from './types';
 
-const clientes: Cliente[] = [];
+const clientes: Cliente[] = [
+];
 
-function cadastrarCliente(cliente: Cliente): void {
+function cadastrarCliente(cliente: Cliente): boolean {
+if (cliente.nome === '' || cliente.idade <= 0) {
+    return false;
+}
   clientes.push(cliente);
+  return true;
 }
 
 function listarClientes(): Cliente[] {
