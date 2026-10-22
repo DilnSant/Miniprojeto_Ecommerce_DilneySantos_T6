@@ -8,10 +8,18 @@
     "start": "node dist/main.js",
     "dev": "tsc && node dist/main.js"
   },
-  "keywords": ["ecommerce", "typescript", "nodejs"],
+  "keywords": [
+    "ecommerce",
+    "typescript",
+    "nodejs"
+  ],
   "author": "Dilney Santos",
   "license": "ISC",
   "dependencies": {
+    "prompt-sync": "^4.2.0",
     "typescript": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/prompt-sync": "^4.2.3"
   }
 }
