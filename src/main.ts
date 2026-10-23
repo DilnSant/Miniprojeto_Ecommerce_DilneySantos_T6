@@ -29,7 +29,29 @@ import { formatarMoeda } from './helper';
 
 const prompt = promptSync({ sigint: true });
 
-let escolha: number = 0
+// Demonstração automática de 3 situações inválidas (exigido pelo documento - Sprint 5)
+console.log('\n══════════════════════════════════════════════════════════════');
+console.log('  🧪 DEMONSTRAÇÃO: Testes de situações inválidas');
+console.log('══════════════════════════════════════════════════════════════');
+
+// Situação inválida 1: Cadastrar produto com preço negativo
+console.log('\n  [Teste 1] Tentar cadastrar produto com preço negativo:');
+cadastrarProduto('Produto Inválido', 'Teste', -50, 10);
+
+// Situação inválida 2: Finalizar pedido com carrinho vazio
+console.log('\n  [Teste 2] Tentar finalizar pedido com carrinho vazio:');
+criarCarrinho(1); // cria carrinho vazio para cliente 1
+finalizarPedido(1);
+
+// Situação inválida 3: Adicionar produto ao carrinho com quantidade além do estoque
+console.log('\n  [Teste 3] Tentar adicionar quantidade além do estoque:');
+adicionarAoCarrinho(6, 9999); // produto 6 tem apenas 15 em estoque
+
+console.log('\n══════════════════════════════════════════════════════════════');
+console.log('  ✅ Testes concluídos. Iniciando o menu principal...');
+console.log('══════════════════════════════════════════════════════════════\n');
+
+let escolha: number = 0;
 
 do {
     console.log('\n╔═════════════════════════════════════════════════════════════╗');
@@ -59,7 +81,7 @@ do {
     console.log('22 - Relatório de pedidos');
     console.log('23 - Resumo de vendas');
     console.log('0 - Sair do sistema');
-    let escolha = Number(prompt('O que você deseja fazer? '));
+    escolha = Number(prompt('O que você deseja fazer? '));
     switch (escolha) {
         case 1:
             const nomeProd = prompt('Nome do produto: ');
